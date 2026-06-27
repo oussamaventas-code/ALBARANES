@@ -110,3 +110,5 @@ La tabla `albaranes` ya reserva columnas para `firma_url`, `latitud` y `longitud
 - Geolocalización de la entrega.
 - Integración con ERP, notificaciones y exportación masiva.
 - Multiempresa (multi-tenant).
+
+<!-- deploy trigger 1782582707 -->
