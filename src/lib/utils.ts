@@ -124,7 +124,7 @@ export function formatFileSize(bytes: number): string {
  * que Gmail ignora cualquier sufijo "+alias" y entrega todo a esta bandeja real.
  * Configúralo mediante VITE_AUTH_EMAIL_BASE en el .env si cambia de propietario.
  */
-const AUTH_EMAIL_BASE = import.meta.env.VITE_AUTH_EMAIL_BASE || 'oussamaaamahm@gmail.com';
+const AUTH_EMAIL_BASE = import.meta.env.VITE_AUTH_EMAIL_BASE || 'oussamaamah@gmail.com';
 
 /**
  * Genera un email sintético a partir del código de usuario.
