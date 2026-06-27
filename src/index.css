@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* ============================================
+   GS AUTOBAT — Design System
+   Sistema de diseño completo con Tailwind CSS v4
+   ============================================ */
+
+/* --- Tema personalizado (Tailwind v4 @theme) --- */
+@theme inline {
+  /* Colores mapeados a variables CSS */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radios */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Animaciones personalizadas */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-fade-in-up: fade-in-up 0.4s ease-out;
+  --animate-slide-in-right: slide-in-right 0.3s ease-out;
+  --animate-slide-in-left: slide-in-left 0.3s ease-out;
+  --animate-slide-in-bottom: slide-in-bottom 0.3s ease-out;
+  --animate-scale-in: scale-in 0.2s ease-out;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+
+  /* Accordion animation for shadcn */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* --- Keyframes --- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-bottom {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+/* ============================================
+   Tema claro (por defecto) — Paleta GS AUTOBAT
+   Azul oscuro profesional con acentos eléctricos
+   ============================================ */
+@layer base {
+  :root {
+    --background: oklch(0.985 0.002 247);
+    --foreground: oklch(0.145 0.015 260);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0.015 260);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0.015 260);
+    --primary: oklch(0.55 0.18 255);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.96 0.005 260);
+    --secondary-foreground: oklch(0.25 0.015 260);
+    --muted: oklch(0.96 0.005 260);
+    --muted-foreground: oklch(0.52 0.02 260);
+    --accent: oklch(0.95 0.01 255);
+    --accent-foreground: oklch(0.25 0.015 260);
+    --destructive: oklch(0.55 0.22 27);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.91 0.005 260);
+    --input: oklch(0.91 0.005 260);
+    --ring: oklch(0.55 0.18 255);
+    --radius: 0.625rem;
+    --chart-1: oklch(0.55 0.18 255);
+    --chart-2: oklch(0.65 0.18 165);
+    --chart-3: oklch(0.7 0.15 50);
+    --chart-4: oklch(0.6 0.2 300);
+    --chart-5: oklch(0.7 0.15 25);
+
+    --sidebar: oklch(0.15 0.02 255);
+    --sidebar-foreground: oklch(0.88 0.01 255);
+    --sidebar-primary: oklch(0.65 0.2 255);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.22 0.025 255);
+    --sidebar-accent-foreground: oklch(0.92 0.01 255);
+    --sidebar-border: oklch(0.25 0.02 255);
+    --sidebar-ring: oklch(0.65 0.2 255);
+  }
+
+  /* ============================================
+     Tema oscuro
+     ============================================ */
+  .dark {
+    --background: oklch(0.12 0.015 260);
+    --foreground: oklch(0.95 0.005 260);
+    --card: oklch(0.16 0.015 260);
+    --card-foreground: oklch(0.95 0.005 260);
+    --popover: oklch(0.16 0.015 260);
+    --popover-foreground: oklch(0.95 0.005 260);
+    --primary: oklch(0.65 0.2 255);
+    --primary-foreground: oklch(0.12 0.015 260);
+    --secondary: oklch(0.22 0.015 260);
+    --secondary-foreground: oklch(0.92 0.005 260);
+    --muted: oklch(0.22 0.015 260);
+    --muted-foreground: oklch(0.65 0.01 260);
+    --accent: oklch(0.22 0.015 260);
+    --accent-foreground: oklch(0.92 0.005 260);
+    --destructive: oklch(0.45 0.18 25);
+    --destructive-foreground: oklch(0.95 0 0);
+    --border: oklch(0.25 0.015 260);
+    --input: oklch(0.25 0.015 260);
+    --ring: oklch(0.65 0.2 255);
+    --chart-1: oklch(0.65 0.2 255);
+    --chart-2: oklch(0.7 0.18 165);
+    --chart-3: oklch(0.75 0.15 50);
+    --chart-4: oklch(0.65 0.2 300);
+    --chart-5: oklch(0.75 0.15 25);
+
+    --sidebar: oklch(0.1 0.015 260);
+    --sidebar-foreground: oklch(0.88 0.01 255);
+    --sidebar-primary: oklch(0.65 0.2 255);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.18 0.02 255);
+    --sidebar-accent-foreground: oklch(0.92 0.01 255);
+    --sidebar-border: oklch(0.22 0.02 255);
+    --sidebar-ring: oklch(0.65 0.2 255);
+  }
+}
+
+/* --- Estilos base --- */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+
+  /* Mejoras táctiles para móvil */
+  @media (pointer: coarse) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+  }
+
+  /* Desactivar highlight azul en móviles */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* --- Utilidades personalizadas --- */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media (min-width: 768px) {
+    max-width: 768px;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
+/* --- Glassmorphism utility --- */
+@utility glass {
+  background: oklch(1 0 0 / 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.2);
+}
+
+.dark .glass {
+  background: oklch(0.16 0.015 260 / 0.7);
+  border-color: oklch(0.25 0.015 260 / 0.3);
+}
